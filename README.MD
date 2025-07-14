@@ -24,7 +24,7 @@ This project is a custom-built auto-refresh extension inspired by popular tools 
 
 ## How to Install Locally
 
-1.  Clone this repository: `git clone https://github.com/YOUR_USERNAME/your-repo-name.git`
+1.  Clone this repository: `git clone https://github.com/Smile-Khan/chrome-auto-refresher-extension.git`
 2.  Open Chrome and navigate to `chrome://extensions`.
 3.  Enable "Developer mode" in the top-right corner.
 4.  Click "Load unpacked" and select the cloned project folder.
