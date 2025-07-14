@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Refresher</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="title-group">
+                <img src="icons/icon48.png" class="logo">
+                <div>
+                    <h1>Auto Refresher</h1>
+                    <span class="version-info">Version 1.0.0</span>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="startButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+                    Start
+                </button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-btn"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-btn"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs-wrapper">
+            <div class="tabs">
+                <button class="tab-button active">Time Interval</button>
+                <button class="tab-button" disabled>Countdown</button>
+                <button class="tab-button" disabled>Active Tabs</button>
+                <button class="tab-button" disabled>Page Monitor</button>
+            </div>
+        </div>
+
+        <!-- Main Content Body -->
+        <main class="main-content">
+            <fieldset>
+                <legend>Time Interval</legend>
+                <div class="option-grid">
+                    <div><input type="radio" name="intervalType" value="5s" id="i-5s"><label for="i-5s">5 Seconds</label></div>
+                    <div><input type="radio" name="intervalType" value="10s" id="i-10s"><label for="i-10s">10 Seconds</label></div>
+                    <div><input type="radio" name="intervalType" value="15s" id="i-15s"><label for="i-15s">15 Seconds</label></div>
+                    <div><input type="radio" name="intervalType" value="5m" id="i-5m"><label for="i-5m">5 Minutes</label></div>
+                    <div><input type="radio" name="intervalType" value="10m" id="i-10m"><label for="i-10m">10 Minutes</label></div>
+                    <div><input type="radio" name="intervalType" value="15m" id="i-15m"><label for="i-15m">15 Minutes</label></div>
+                </div>
+                <div class="option-row custom-time-row">
+                    <input type="radio" name="intervalType" value="hms" id="i-hms"><label for="i-hms"></label>
+                    <input type="number" id="hms-h" value="0" min="0"> <span class="unit-label">Hour</span>
+                    <input type="number" id="hms-m" value="10" min="0"> <span class="unit-label">Min</span>
+                    <input type="number" id="hms-s" value="0" min="0"> <span class="unit-label">Sec</span>
+                </div>
+                <div class="option-row">
+                    <input type="radio" name="intervalType" value="s" id="i-s" checked> <label for="i-s"></label>
+                    <input type="number" id="s-s" value="10" min="5">
+                    <label for="i-s">Seconds</label>
+                </div>
+                <div class="option-row random-row">
+                    <input type="radio" name="intervalType" value="random" id="i-random"><label for="i-random"></label>
+                    <label for="i-random">Random Interval</label>
+                    <div class="random-inputs">
+                        Min <input type="number" id="randomMin" value="5" min="5">
+                        Max <input type="number" id="randomMax" value="30" min="5">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="checkbox-row"><input type="checkbox" id="hardRefresh"><label for="hardRefresh">Hard Refresh <span class="label-note">(Reload The Page Without Relying On Cached Data)</span></label></div>
+                <div class="checkbox-row"><input type="checkbox" id="enableRefreshCount"><label for="enableRefreshCount">Set Refresh Number <span class="label-note">(Set How Many Times You Want To Refresh.)</span></label></div>
+                <div class="checkbox-row"><input type="checkbox" id="visualTimer"><label for="visualTimer">Show Visual Timer On The Webpage</label></div>
+                <div class="checkbox-row"><input type="checkbox" id="stopOnInteraction"><label for="stopOnInteraction">Stop Refresh On User Interaction</label></div>
+            </fieldset>
+        </main>
+        
+        <!-- Hidden input for refresh count -->
+        <input type="number" id="refreshCount" value="10" min="1" style="display: none;">
+
+        <!-- Footer -->
+        <footer class="footer">
+            <button id="stopButton" disabled>Stop Refreshing</button>
+            <div id="status">Status: Idle</div>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

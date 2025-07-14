@@ -1,0 +1,82 @@
+:root {
+    --primary-color: #00A878;
+    --primary-hover: #007f5b;
+    --danger-color: #e74c3c;
+    --border-color: #e0e0e0;
+    --text-color: #333;
+    --text-muted: #6c757d;
+    --bg-color: #fff;
+    --bg-light: #f9f9f9;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    margin: 0;
+    width: 400px; /* Set a fixed width to prevent overflow */
+}
+
+.container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+/* Header */
+.header { display: flex; justify-content: space-between; align-items: center; }
+.title-group { display: flex; align-items: center; gap: 12px; }
+.logo { width: 32px; height: 32px; }
+h1 { font-size: 16px; margin: 0; font-weight: 600; line-height: 1.2; }
+.version-info { font-size: 12px; color: var(--text-muted); }
+.controls { display: flex; align-items: center; gap: 12px; }
+.icon-btn { color: var(--text-muted); cursor: pointer; transition: color 0.2s; }
+.icon-btn:hover { color: var(--text-color); }
+
+/* Start Button */
+#startButton {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    transition: background-color 0.2s;
+}
+#startButton:hover { background-color: var(--primary-hover); }
+
+/* Tabs */
+.tabs-wrapper { background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: 20px; padding: 4px; }
+.tabs { display: flex; justify-content: space-around; }
+.tab-button { background: none; border: none; padding: 6px 12px; cursor: pointer; color: var(--text-muted); border-radius: 16px; font-size: 14px; flex-grow: 1; transition: all 0.2s ease-in-out; }
+.tab-button.active { background-color: var(--primary-color); color: white; font-weight: 500; }
+.tab-button:disabled { color: #ccc; cursor: not-allowed; }
+
+/* Main Content & Form Styling */
+.main-content { display: flex; flex-direction: column; gap: 24px; }
+fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+fieldset legend { font-size: 20px; font-weight: bold; padding: 2px 8px; margin-left: -8px; margin-bottom: 8px; background-color: rgba(255, 229, 102, 0.5); }
+.option-row, .checkbox-row { display: flex; align-items: center; gap: 8px; }
+.option-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 8px; }
+.option-grid > div { display: flex; align-items: center; gap: 8px; }
+input[type="radio"], input[type="checkbox"] { width: 16px; height: 16px; margin: 0; cursor: pointer; }
+input[type="checkbox"] { border-radius: 3px; }
+input[type="number"] { width: 50px; padding: 8px; border: 1px solid var(--border-color); background-color: #fdfdfd; border-radius: 6px; text-align: center; font-size: 14px; transition: border-color 0.2s; }
+input[type="number"]:focus { outline: none; border-color: var(--primary-color); }
+.random-row { justify-content: flex-start; }
+.random-inputs { display: flex; align-items: center; gap: 8px; color: var(--text-muted); margin-left: auto; }
+.label-note { color: var(--text-muted); font-size: 0.9em; }
+label { cursor: pointer; display: flex; align-items: center; gap: 8px; }
+
+/* Footer */
+.footer { text-align: center; }
+#stopButton { width: 100%; box-sizing: border-box; background-color: var(--danger-color); color: white; border: none; border-radius: 6px; padding: 10px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background-color 0.2s; }
+#stopButton:disabled { background-color: #fbecec; color: #e74c3c; cursor: not-allowed; opacity: 0.7; }
+#status { margin-top: 8px; font-size: 12px; color: var(--text-muted); }
